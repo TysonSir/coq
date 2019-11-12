@@ -23,7 +23,7 @@ Definition orb (b1:bool) (b2:bool) : bool :=
 
 Notation "x && y" := (andb x y).
 Notation "x || y" := (orb x y).
-(* Notation "!x" := (negb x). *)
+Notation "! x" := (negb x)(at level 70).
 
 Example test_orb5:  false || false || true = true.
 Proof. simpl. reflexivity. Qed.
@@ -33,8 +33,8 @@ Proof. simpl. reflexivity. Qed.
 (* 此处代码冗余，希望学到后面能改进 *)
 Definition nandb (b1:bool) (b2:bool) : bool :=
   match b1 with
-  | true => (negb (b1 && b2))
-  | false => (negb (b1 && b2))
+  | true => !(b1 && b2)
+  | false => !(b1 && b2)
   end.
 
 Example test_nandb1:               (nandb true false) = true.

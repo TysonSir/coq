@@ -26,7 +26,8 @@ Notation "x || y" := (orb x y).
 
 (* 为何取反的符号不能定义,报错： *)
 (* The reference x was not found in the current environment. *)
-Notation "!x" := (negb x).
+(* Notation "!x" := (negb x). *)
+Notation "! x" := (negb x)(at level 70).
 
 Example test_orb:  false || false || true = true.
 Proof. simpl. reflexivity. Qed.
